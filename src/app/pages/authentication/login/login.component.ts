@@ -22,7 +22,7 @@ export class AppSideLoginComponent {
       password: this.password,
     };
 
-    this.http.post("http://localhost:8080/api/v1/auth/login", bodyData).subscribe((resultData: any) => {
+    this.http.post("https://back-estudiojuridico.onrender.com/api/v1/auth/login", bodyData).subscribe((resultData: any) => {
       console.log(resultData.tokenType);
 
       if (resultData.tokenType == "Bearer ") {
