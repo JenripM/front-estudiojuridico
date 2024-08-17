@@ -85,7 +85,7 @@ export class AppTrabajadorRegistrarComponent implements OnInit {
         }
       };
   
-      this.http.post<any>('http://localhost:8080/api/v1/trabajador/save', trabajadorData)
+      this.http.post<any>('https://back-estudiojuridico.onrender.com/api/v1/trabajador/save', trabajadorData)
         .subscribe(response => {
           console.log('Trabajador registrado exitosamente:', response);
           alert('Trabajador registrado exitosamente');
