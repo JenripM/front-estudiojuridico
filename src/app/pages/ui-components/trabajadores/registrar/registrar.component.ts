@@ -58,7 +58,7 @@ export class AppTrabajadorRegistrarComponent implements OnInit {
   }
 
   obtenerCargos() {
-    this.http.get<any[]>('http://localhost:8080/api/v1/cargo/all')
+    this.http.get<any[]>('https://back-estudiojuridico.onrender.com/api/v1/cargo/all')
       .subscribe(
         cargos => {
           this.cargos = cargos;
