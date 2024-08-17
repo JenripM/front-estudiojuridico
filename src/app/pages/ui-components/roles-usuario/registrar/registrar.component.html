@@ -1,0 +1,40 @@
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+      <mat-card-title class="m-b-0">REGISTRO DE USUARIOS</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="b-t-1">
+      <br>
+      <form [formGroup]="formularioRegistro" (ngSubmit)="registrarUsuario()">
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field class="full-width">
+              <mat-label>UserName</mat-label>
+              <input matInput type="text" formControlName="username" required>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password" required>
+            </mat-form-field>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-12">
+            <mat-label>Rol de sistema:</mat-label><br>
+            <mat-radio-group formControlName="role">
+              <mat-radio-button *ngFor="let role of roles" [value]="role">{{role}}</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <button mat-raised-button color="primary" type="submit">Registrar</button>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

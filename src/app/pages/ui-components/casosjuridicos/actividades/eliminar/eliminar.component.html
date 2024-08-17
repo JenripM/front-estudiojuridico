@@ -1,0 +1,28 @@
+<mat-card class="cardWithShadow theme-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">ELIMINAR ACTIVIDAD</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="b-t-1">
+    <br>
+    <p>¿Estás seguro que deseas eliminar la siguiente actividad?</p>
+    <ul>
+      <li><strong>ID:</strong> {{ actividad.id}}</li>
+      <li><strong>Nombre:</strong> {{ actividad.nombre }}</li>
+      <li><strong>Estado:</strong> {{ actividad.estado }}</li>
+      <li><strong>Fecha Inicio:</strong> {{ actividad.fecha_inicio | date:'dd/MM/yyyy' }}</li>
+      <li><strong>Fecha Cierre:</strong> {{ actividad.fecha_cierre | date:'dd/MM/yyyy' }}</li>
+      <li><strong>Descripcion:</strong> {{ actividad.descripcion }}</li>
+      <li><strong>Cliente:</strong> {{ actividad.trabajador.nombres + actividad.trabajador.apellidos }}</li>
+    </ul>
+    <br>
+    <div class="row">
+      <div class="col-6">
+        <button mat-raised-button color="warn" (click)="confirmarEliminacion()">Sí, eliminar</button>
+      </div>
+      <div class="col-6">
+        <button mat-raised-button color="primary" (click)="cancelarEliminacion()">No, cancelar</button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+

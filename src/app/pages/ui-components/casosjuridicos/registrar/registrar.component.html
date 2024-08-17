@@ -1,0 +1,83 @@
+<mat-card class="cardWithShadow theme-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">REGISTRO DE CASOS</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="b-t-1">
+    <br>
+    <form [formGroup]="formularioRegistro" (ngSubmit)="registrarCaso()">
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="full-width">
+            <mat-label>Tipo</mat-label>
+            <mat-select formControlName="tipo" required>
+              <mat-option value="Civil">Civil</mat-option>
+              <mat-option value="Penal">Penal</mat-option>
+              <mat-option value="Laboral">Laboral</mat-option>
+              <mat-option value="Mercantil">Mercantil</mat-option>
+              <mat-option value="Administrativo">Administrativo</mat-option>
+              <mat-option value="Ambiental">Ambiental</mat-option>
+              <mat-option value="Fiscal">Fiscal</mat-option>
+              <mat-option value="Salud">Salud</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="full-width">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="estado" required>
+              <mat-option value="Iniciado">Iniciado</mat-option>
+              <mat-option value="En proceso">En proceso</mat-option>
+              <mat-option value="Suspendido">Suspendido</mat-option>
+              <mat-option value="Terminado">Terminado</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field style="width: 100%;">
+            <mat-label>Fecha de inicio</mat-label>
+            <input matInput type="date" formControlName="fecha_inicio" required>
+            <!-- <mat-datepicker-toggle matSuffix [for]="pickerFechaInicio"></mat-datepicker-toggle> -->
+            <!-- <mat-datepicker #pickerFechaInicio></mat-datepicker> -->
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field style="width: 100%;">
+            <mat-label>Fecha de cierre</mat-label>
+            <input matInput type="date" formControlName="fecha_cierre" required>
+            <!-- <mat-datepicker-toggle matSuffix [for]="pickerFechaCierre"></mat-datepicker-toggle> -->
+            <!-- <mat-datepicker #pickerFechaCierre></mat-datepicker> -->
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="full-width">
+            <mat-label>Descripcion</mat-label>
+            <input matInput type="text" formControlName="descripcion" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <mat-form-field class="full-width">
+            <mat-label>Cliente</mat-label>
+            <mat-select formControlName="clienteId" required>
+              <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">{{ cliente.nombre }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <button mat-raised-button color="primary" type="submit">Registrar Caso</button>
+        </div>
+        <div class="col-2">
+          <a mat-flat-button class="blue" href="http://localhost:4200/ui-components/casosjuridicos">Cancelar</a>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+

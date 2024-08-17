@@ -1,0 +1,90 @@
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .chat-form {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+  
+  .chat {
+    width: 100%;
+    max-width: 600px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chat-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .chat-title h1,
+  .chat-title h2 {
+    margin: 0;
+    margin-left: 10px;
+  }
+  
+  .chat-title .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .messages {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+  
+  .messages div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .messages .gemini {
+    background-color: #e1f5fe;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 10px;
+  }
+  
+  .messages .user {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+  
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .message-box {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .message-box mat-form-field {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .message-box button {
+    height: 100%;
+  }
+  

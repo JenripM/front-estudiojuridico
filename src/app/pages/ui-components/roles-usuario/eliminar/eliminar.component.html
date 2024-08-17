@@ -1,0 +1,28 @@
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+      <mat-card-title class="m-b-0">ELIMINAR USUARIO</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="b-t-1">
+      <br>
+      <p>¿Estás seguro que deseas eliminar el siguiente usuario?</p>
+      <ul>
+        <li><strong>ID:</strong> {{ usuario.idUsuario }}</li>
+        <li><strong>Username:</strong> {{ usuario.username }}</li>
+        <li><strong>Rol del sistema:</strong>
+            <ul>
+              <li *ngFor="let role of usuario.roles">{{ role.name }}</li>
+            </ul>
+          </li>
+      </ul>
+      <br>
+      <div class="row">
+        <div class="col-6">
+          <button mat-raised-button color="warn" (click)="confirmarEliminacion()">Sí, eliminar</button>
+        </div>
+        <div class="col-6">
+          <button mat-raised-button color="primary" (click)="cancelarEliminacion()">No, cancelar</button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  

@@ -1,0 +1,33 @@
+.container {
+    max-width: 600px; /* Ajusta el ancho máximo del contenedor */
+    margin: 20px auto; /* Centra el contenedor verticalmente */
+    padding: 20px; /* Espaciado interno */
+  }
+  
+  .card-container {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Espaciado entre los campos del formulario */
+  }
+  
+  .form-field {
+    width: 100%;
+  }
+  
+ 
+  .button-container {
+    margin-top: 20px;
+    text-align: right;
+  }
+  

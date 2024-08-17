@@ -1,0 +1,26 @@
+<mat-card class="cardWithShadow theme-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">ELIMINAR TRABAJADOR</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="b-t-1">
+    <br>
+    <p>¿Estás seguro que deseas eliminar el siguiente trabajador?</p>
+    <ul>
+      <li><strong>Nombres:</strong> {{ trabajador.nombres }}</li>
+      <li><strong>Apellidos:</strong> {{ trabajador.apellidos }}</li>
+      <li><strong>Dirección:</strong> {{ trabajador.direccion }}</li>
+      <li><strong>Email:</strong> {{ trabajador.email }}</li>
+      <li><strong>Celular:</strong> {{ trabajador.celular }}</li>
+      <li><strong>Cargo:</strong> {{ trabajador.cargo?.nombre }}</li>
+    </ul>
+    <br>
+    <div class="row">
+      <div class="col-6">
+        <button mat-raised-button color="warn" (click)="confirmarEliminacion()">Sí, eliminar</button>
+      </div>
+      <div class="col-6">
+        <button mat-raised-button color="primary" (click)="cancelarEliminacion()">No, cancelar</button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

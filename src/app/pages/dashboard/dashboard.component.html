@@ -1,0 +1,222 @@
+
+
+<div class="container">
+  <div class="row">
+    <!-- Mat-card en la parte inferior -->
+    <div class="col-lg-6">
+      <mat-card class="cardWithShadow">
+        <mat-card-content class="p-24">
+          <!-- Contenido del mat-card en la parte inferior -->
+          
+          <div id="chart">
+            <apx-chart 
+              [series]="chartOptions.series" 
+              [chart]="chartOptions.chart" 
+              [labels]="chartOptions.labels"
+              [title]="chartOptions.title"
+              [responsive]="chartOptions.responsive"
+              [dataLabels]="chartOptions.dataLabels">
+            </apx-chart>
+          </div>
+          
+          
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-lg-6">
+      <mat-card class="cardWithShadow">
+        <mat-card-content class="p-24">
+        </mat-card-content>
+      </mat-card> 
+    </div>
+  </div>
+  <div class="row">
+    <!-- Columna para el primer mat-card en la parte superior izquierda -->
+    <div class="col-lg-6 mb-3">
+      <mat-card class="cardWithShadow">
+        <mat-card-content class="p-24">
+          <!-- Contenido del primer mat-card -->
+          <h1>Formulario de Predicción</h1>
+          <p>Ingrese los datos para predecir, y registre</p>
+          <!-- Formulario de Predicción -->
+        
+          <form [formGroup]="predictForm" (ngSubmit)="onSubmit()">
+            <mat-card>
+         
+              <mat-card-content>
+                
+                <!-- ID Cliente -->
+                <mat-form-field appearance="fill">
+                  <mat-label>ID Cliente</mat-label>
+                  <input matInput formControlName="id_cliente" />
+                  <mat-error *ngIf="predictForm.get('id_cliente')?.hasError('required')">
+                    Este campo es obligatorio.
+                  </mat-error>
+                </mat-form-field>
+          
+                <!-- Edad -->
+                <mat-form-field appearance="fill">
+                  <mat-label>Edad</mat-label>
+                  <input matInput formControlName="edad" />
+                  <mat-error *ngIf="predictForm.get('edad')?.hasError('required')">
+                    Este campo es obligatorio.
+                  </mat-error>
+                </mat-form-field>
+          
+                <!-- Género -->
+                <mat-form-field appearance="fill">
+                  <mat-label>Género</mat-label>
+                  <mat-select formControlName="genero">
+                    <mat-option *ngFor="let genero of generoOptions" [value]="genero">
+                      {{ genero }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="predictForm.get('genero')?.hasError('required')">
+                    Este campo es obligatorio.
+                  </mat-error>
+                </mat-form-field>
+                
+          
+                <!-- Tipo de Caso -->
+                <mat-form-field appearance="fill">
+                  <mat-label>Tipo de Caso</mat-label>
+                  <mat-select formControlName="tipo_caso">
+                    <mat-option *ngFor="let tipo of tipoCasoOptions" [value]="tipo">
+                      {{ tipo }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="predictForm.get('tipo_caso')?.hasError('required')">
+                    Este campo es obligatorio.
+                  </mat-error>
+                </mat-form-field>
+          
+                <!-- Fecha de Inicio -->
+                <mat-form-field appearance="fill">
+                  <mat-label>Fecha de Inicio</mat-label>
+                  <input matInput [matDatepicker]="pickerInicio" formControlName="fecha_inicio" />
+                  <mat-datepicker-toggle matSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+                  <mat-datepicker #pickerInicio></mat-datepicker>
+                  <mat-error *ngIf="predictForm.get('fecha_inicio')?.hasError('required')">
+                    Este campo es obligatorio.
+                  </mat-error>
+                </mat-form-field>
+          
+                <!-- Fecha de Cierre -->
+                <mat-form-field appearance="fill">
+                  <mat-label>Fecha de Cierre</mat-label>
+                  <input matInput [matDatepicker]="pickerCierre" formControlName="fecha_cierre" />
+                  <mat-datepicker-toggle matSuffix [for]="pickerCierre"></mat-datepicker-toggle>
+                  <mat-datepicker #pickerCierre></mat-datepicker>
+                  <mat-error *ngIf="predictForm.get('fecha_cierre')?.hasError('required')">
+                    Este campo es obligatorio.
+                  </mat-error>
+                </mat-form-field>
+          
+                <!-- Última Actividad -->
+                <mat-form-field appearance="fill">
+                  <mat-label>Última Actividad</mat-label>
+                  <input matInput [matDatepicker]="pickerUltimaActividad" formControlName="ultima_actividad" />
+                  <mat-datepicker-toggle matSuffix [for]="pickerUltimaActividad"></mat-datepicker-toggle>
+                  <mat-datepicker #pickerUltimaActividad></mat-datepicker>
+                  <mat-error *ngIf="predictForm.get('ultima_actividad')?.hasError('required')">
+                    Este campo es obligatorio.
+                  </mat-error>
+                </mat-form-field>
+          
+                <!-- Botón para Realizar Predicción -->
+                <div>
+                  <button mat-raised-button color="primary" type="submit">Realizar Predicción</button>
+                </div>
+          
+                <!-- Mensaje de Predicción -->
+                <div *ngIf="predictionMessage">
+                  <p>{{ predictionMessage }}</p>
+                </div>
+          
+                <!-- Botón para Registrar los Datos -->
+                <div *ngIf="predictionMessage !== null">
+                  <mat-card>
+                    <mat-card-header>
+                      <mat-card-title>Registrar Datos</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                      <p>Resultado de la Predicción: {{ predictionMessage }}</p>
+                      <button mat-raised-button color="accent" type="button" (click)="registerData()">Registrar Datos</button>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+          
+              </mat-card-content>
+            </mat-card>
+          </form>
+          
+          
+          <!--<button (click)="registerData2()">Registrar Datoffffffs</button>-->
+
+          
+        
+          
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Columna para el segundo mat-card en la parte superior derecha -->
+    <div class="col-lg-6 mb-3">
+      <mat-card class="cardWithShadow">
+        <mat-card-content class="p-24">
+          <div *ngIf="chatForm.value.bot" class="chat">
+            <div class="chat-title">
+              <h1>{{ chatForm.value.bot.id ? "Gemini" : "" }}</h1>
+              <h2>{{ chatForm.value.bot.id ? "Google Deep Mind" : "" }}</h2>
+            </div>
+            <div #messagesContainer class="messages">
+              <h2 *ngIf="messagesHistory.length < 1" class="welcome-message">Hola, Usuario de Rosales y Asociados?</h2>
+              <div *ngFor="let message of messagesHistory" [ngClass]="{'gemini': message.role === 'model', 'user': message.role === 'user'}">
+                <mat-icon *ngIf="message.role === 'model'">comment</mat-icon>
+                <mat-icon *ngIf="message.role === 'user'">person</mat-icon>
+                <span>{{ message.role === 'model' ? 'AI' : 'User' }}:</span>
+                <span [innerHTML]="message.parts | convertTextToHtml"></span>
+              </div>
+              <div class="loading-container">
+                <mat-spinner *ngIf="loading"></mat-spinner>
+              </div>
+            </div>
+            <div class="message-box">
+              <div class="prepared-messages">
+                <ul>
+                  <li *ngFor="let question of (chatForm.value.bot.id ? gQuestions : bQuestions)" (click)="sendMessage(question); userMessage = ''">
+                    {{ question }}
+                  </li>
+                </ul>
+              </div>
+              <mat-form-field appearance="fill">
+                <textarea
+                  [(ngModel)]="userMessage"
+                  (keydown.enter)="sendMessage(userMessage!); userMessage = null"
+                  matInput
+                  placeholder="Pregunta {{ chatForm.value.bot.value }}"
+                  rows="2"
+                ></textarea>
+              </mat-form-field>
+              <button
+                (click)="sendMessage(userMessage!); userMessage = null"
+                [disabled]="!userMessage || loading"
+                mat-raised-button
+                color="primary"
+              >
+                Send
+              </button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+
+</div>
+
+<!-- --------------------------------------------------------------------------- -->
+<!-- end Profit & Expenses -->
+<!-- --------------------------------------------------------------------------- -->

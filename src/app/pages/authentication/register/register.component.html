@@ -1,0 +1,38 @@
+<section>
+  <div class="blank-layout-container justify-content-center align-items-center" style="background-image: url('../../../../assets/images/backgrounds/fondo.jpg'); background-size: cover; background-position: center;">
+    <div class="position-relative row w-100 h-100 bg-gradient justify-content-center">
+      <div class="col-lg-4 d-flex align-items-center">
+        <mat-card class="cardWithShadow boxed-auth">
+          <mat-card-content class="p-32">
+            <div class="text-center">
+              <a [routerLink]="['/dashboard']">
+                <img style="width: 320px;" src="../../../../assets/images/logoacr.png" class="align-middle m-2" alt="logo" />
+              </a>
+            </div>
+            <div class="or-border m-t-30">Ingrese Sus Datos</div>
+            <form class="m-t-30">
+              <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Name</mat-label>
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <input matInput id="name" [(ngModel)]="userName" [ngModelOptions]="{standalone: true}" />
+              </mat-form-field>
+              <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Email Adddress</mat-label>
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <input matInput type="email" id="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control" />
+              </mat-form-field>
+              <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Password</mat-label>
+              <mat-form-field appearance="outline" class="w-100" color="primary">
+                <input matInput type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control" id="password" placeholder="Enter Password" />
+              </mat-form-field>
+              <a [routerLink]="['/']" (click)="save()" mat-flat-button color="primary" class="w-100">
+                Sign Up
+              </a>
+            </form>
+            <span class="d-block f-w-500 text-center m-t-24">Already have an Account?
+              <a [routerLink]="['/authentication/login']" class="text-decoration-none text-primary f-w-500 f-s-14">Iniciar Sesion</a>
+            </span>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>

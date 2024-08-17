@@ -1,0 +1,41 @@
+<div class="container">
+  <mat-card class="card-container">
+    <mat-card-title class="card-title">Actualizar Documento</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="formularioEdicion" (ngSubmit)="editarDocumento()" class="form-container">
+        
+        <!-- Campo para Tipo de Documento -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Tipo</mat-label>
+          <mat-select formControlName="tipo">
+            <mat-option value="PDF">PDF</mat-option>
+            <mat-option value="DOC">DOC</mat-option>
+            <mat-option value="XLS">XLS</mat-option>
+            <!-- Agrega más opciones si es necesario -->
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <!-- Campo para Nombre del Archivo -->
+        <mat-form-field appearance="fill" class="form-field">
+          <input type="file" (change)="onFileSelected($event)" class="file-input">
+          <input matInput [value]="nombreArchivo" readonly class="file-name-input">
+        </mat-form-field>
+        <br>
+        <!-- Campo para Seleccionar Caso -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Seleccionar Caso</mat-label>
+          <mat-select formControlName="casoId">
+            <mat-option *ngFor="let caso of casos" [value]="caso.id">
+              ID: {{ caso.id }}  CLIENTE: {{caso.cliente.nombre}} {{caso.cliente.apellido}}<!-- Asume que cada caso tiene un campo 'nombre' -->
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Botón para Registrar Documento -->
+        <div class="button-container">
+          <button mat-raised-button color="primary" type="submit">Actualizar Documento</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,79 @@
+<mat-card class="cardWithShadow theme-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">REGISTRO DE ACTIVIDAD</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="b-t-1">
+    <br>
+    <form [formGroup]="formularioRegistro" (ngSubmit)="registrarActividad()">
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" formControlName="nombre" required>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="full-width">
+            <mat-label>Prioridad</mat-label>
+            <mat-select formControlName="prioridad" required>
+              <mat-option value="Baja">Baja</mat-option>
+              <mat-option value="Media">Media</mat-option>
+              <mat-option value="Alta">Alta</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field style="width: 100%;">
+            <mat-label>Fecha de inicio</mat-label>
+            <input matInput type="date" formControlName="fecha_inicio" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field style="width: 100%;">
+            <mat-label>Fecha de cierre</mat-label>
+            <input matInput type="date" formControlName="fecha_cierre" required>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="full-width">
+            <mat-label>Descripcion</mat-label>
+            <input matInput type="text" formControlName="descripcion" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="full-width">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="estado" required>
+              <mat-option value="Iniciado">Iniciado</mat-option>
+              <mat-option value="En proceso">En proceso</mat-option>
+              <mat-option value="Suspendido">Suspendido</mat-option>
+              <mat-option value="Terminado">Terminado</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="full-width">
+            <mat-label>Trabajador</mat-label>
+            <mat-select formControlName="trabajadorId" required>
+              <mat-option *ngFor="let trabajador of trabajadores" [value]="trabajador.trabajadorId">{{ trabajador.nombres + " "+ trabajador.apellidos }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <button mat-raised-button color="primary" type="submit">Registrar Actividad</button>
+        </div>
+        <div class="col-2">
+          <a mat-flat-button class="blue" href="'http://localhost:4200/ui-components/casosjuridicos/caso/' + casoId">Cancelar</a>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,138 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<div class="container mt-5">
+  <h2>Lista de Clientes</h2>
+  <button class="btn btn-primary mb-3" (click)="openNewClienteModal()">Nuevo Registro</button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Actividad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <td>{{ cliente.id }}</td>
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.apellido }}</td>
+        <td>{{ cliente.correoElectronico }}</td>
+        <td>{{ cliente.direccion }}</td>
+        <td>{{ cliente.telefono }}</td>
+        <td>{{ cliente.deserto === 0 ? 'ACTIVO' : 'DESERTO' }}</td>
+        <td>
+          <button class="btn btn-info btn-sm" (click)="openEditClienteModal(cliente)">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="openDeleteClienteModal(cliente.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal para nuevo registro -->
+  <div *ngIf="isNewClienteModalVisible" class="modal fade show d-block" (click)="closeNewClienteModalOutside($event)">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Nuevo Cliente</h5>
+          <button type="button" class="close" (click)="closeNewClienteModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="addCliente()">
+
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" [(ngModel)]="newCliente.nombre" name="nombre" class="form-control" required>
+              <div *ngIf="!validateNombre()" class="alert alert-danger">El nombre solo debe contener letras y espacios en blanco</div>
+            </div>
+
+           
+            <div class="form-group">
+              <label for="apellido">Apellido</label>
+              <input type="text" id="apellido" [(ngModel)]="newCliente.apellido" name="apellido" class="form-control" required>
+              <div *ngIf="!validateApellido()" class="alert alert-danger">El apellido solo debe contener letras y espacios en blanco</div>
+            </div>
+
+            <div class="form-group">
+              <label for="correoElectronico">Correo Electrónico</label>
+              <input type="email" id="correoElectronico" [(ngModel)]="newCliente.correoElectronico" name="correoElectronico" class="form-control" required>
+              <div *ngIf="!validateEmail()" class="alert alert-danger">Dominio no valido, recordar es permitido solo gmail.com</div>
+            </div>
+
+            <div class="form-group">
+              <label for="direccion">Dirección</label>
+              <input type="text" id="direccion" [(ngModel)]="newCliente.direccion" name="direccion" class="form-control" required>
+              <div *ngIf="!validateDireccion()" class="alert alert-danger">La dirección no es valida</div>
+            </div>
+
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="text" id="telefono" [(ngModel)]="newCliente.telefono" name="telefono" class="form-control" required>
+              <div *ngIf="!validateNumero()" class="alert alert-danger">No se permite dicho ingreso, solo números y deben ser 09</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button> 
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para editar cliente -->
+  <div *ngIf="isEditClienteModalVisible" class="modal fade show d-block" (click)="closeEditClienteModalOutside($event)">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Cliente</h5>
+          <button type="button" class="close" (click)="closeEditClienteModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="updateCliente()">
+            <div class="form-group">
+              <label for="editNombre">Nombre</label>
+              <input type="text" id="editNombre" [(ngModel)]="editCliente.nombre" name="editNombre" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="editApellido">Apellido</label>
+              <input type="text" id="editApellido" [(ngModel)]="editCliente.apellido" name="editApellido" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="editCorreoElectronico">Correo Electrónico</label>
+              <input type="email" id="editCorreoElectronico" [(ngModel)]="editCliente.correoElectronico" name="editCorreoElectronico" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="editDireccion">Dirección</label>
+              <input type="text" id="editDireccion" [(ngModel)]="editCliente.direccion" name="editDireccion" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="editTelefono">Teléfono</label>
+              <input type="text" id="editTelefono" [(ngModel)]="editCliente.telefono" name="editTelefono" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para confirmar eliminación -->
+  <div *ngIf="isDeleteClienteModalVisible" class="modal fade show d-block" (click)="closeDeleteClienteModalOutside($event)">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmar Eliminación</h5>
+          <button type="button" class="close" (click)="closeDeleteClienteModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>¿Está seguro de que desea eliminar este cliente?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeDeleteClienteModal()">Cancelar</button>
+          <button type="button" class="btn btn-danger" (click)="deleteCliente()">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

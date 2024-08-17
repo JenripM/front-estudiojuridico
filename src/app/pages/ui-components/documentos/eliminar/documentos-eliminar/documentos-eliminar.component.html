@@ -1,0 +1,24 @@
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+      <mat-card-title class="m-b-0">ELIMINAR documento</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="b-t-1">
+      <br>
+      <p>¿Estás seguro que deseas eliminar el siguiente documento?</p>
+      <ul>
+        <li><strong>IDDOCUMENTO:</strong> {{ documento.idDocumento }}</li>
+        <li><strong>ARCHIVO:</strong> {{ documento.nombreArchivo }}</li>
+        <li><strong>IDCASO:</strong> {{ documento.caso.id}}</li>
+      </ul>
+      <br>
+      <div class="row">
+        <div class="col-6">
+          <button mat-raised-button color="warn" (click)="confirmarEliminacion()">Sí, eliminar</button>
+        </div>
+        <div class="col-6">
+          <button mat-raised-button color="primary" (click)="cancelarEliminacion()">No, cancelar</button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  
