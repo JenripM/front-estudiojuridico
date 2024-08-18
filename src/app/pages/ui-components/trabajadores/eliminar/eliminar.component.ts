@@ -34,7 +34,7 @@ export class EliminarComponent implements OnInit {
   }
 
   obtenerTrabajador(id: string) {
-    this.http.get<any>(`http://localhost:8080/api/v1/trabajador/${id}`)
+    this.http.get<any>(`https://back-estudiojuridico.onrender.com/api/v1/trabajador/${id}`)
       .subscribe(
         trabajador => {
           this.trabajador = trabajador;

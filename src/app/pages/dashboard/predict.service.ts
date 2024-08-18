@@ -15,7 +15,7 @@ export interface ClienteData {
   providedIn: 'root'
 })
 export class PredictService {
-  private apiUrl = 'http://localhost:5000/predict';
+  private apiUrl = 'https://prediccion-deserccionclientes.onrender.com/predict';
 
   constructor(private http: HttpClient) { }
 
