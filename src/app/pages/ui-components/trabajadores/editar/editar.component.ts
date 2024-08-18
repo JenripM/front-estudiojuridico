@@ -61,7 +61,7 @@ export class EditarComponent implements OnInit {
   }
 
   obtenerCargos() {
-    this.http.get<any[]>('http://localhost:8080/api/v1/cargo/all')
+    this.http.get<any[]>('https://back-estudiojuridico.onrender.com/api/v1/cargo/all')
       .subscribe(
         cargos => {
           this.cargos = cargos;
@@ -74,7 +74,7 @@ export class EditarComponent implements OnInit {
   }
 
   obtenerTrabajador(id: string) {
-    this.http.get<any>(`http://localhost:8080/api/v1/trabajador/${id}`)
+    this.http.get<any>(`https://back-estudiojuridico.onrender.com/api/v1/trabajador/${id}`)
       .subscribe(
         trabajador => {
           this.formularioEdicion.patchValue({
@@ -107,7 +107,7 @@ export class EditarComponent implements OnInit {
         }
       };
 
-      this.http.put<any>(`http://localhost:8080/api/v1/trabajador/update/${this.trabajadorId}`, trabajadorData)
+      this.http.put<any>(`https://back-estudiojuridico.onrender.com/api/v1/trabajador/update/${this.trabajadorId}`, trabajadorData)
         .subscribe(response => {
           console.log('Trabajador actualizado exitosamente:', response);
           alert('Trabajador actualizado exitosamente');

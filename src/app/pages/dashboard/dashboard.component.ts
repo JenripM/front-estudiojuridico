@@ -356,7 +356,7 @@ export class AppDashboardComponent  implements OnInit {
         prediccion: this.predictionR // Incluye el resultado de la predicción en el payload
       };
 
-      this.http.post<any>('http://localhost:8080/api/v1/prediccion/save', payload)
+      this.http.post<any>('https://back-estudiojuridico.onrender.com/api/v1/prediccion/save', payload)
         .subscribe(
           response => {
             console.log('Datos registrados exitosamente:', response);
@@ -388,7 +388,7 @@ export class AppDashboardComponent  implements OnInit {
       prediccion: 1 // Valor de prueba para la predicción
     };
   
-    this.http.post<any>('http://localhost:8080/api/v1/prediccion/save', payload)
+    this.http.post<any>('https://back-estudiojuridico.onrender.com/api/v1/prediccion/save', payload)
       .subscribe(
         response => {
           console.log('Datos registrados exitosamente:', response);
@@ -413,7 +413,7 @@ export class AppDashboardComponent  implements OnInit {
   }
   public chartOptions: ChartOptions;
   fetchData() {
-    this.http.get<any[]>('http://localhost:8080/api/v1/prediccion/all').subscribe(data => {
+    this.http.get<any[]>('https://back-estudiojuridico.onrender.com/api/v1/prediccion/all').subscribe(data => {
       // Contar las predicciones de 1 y 0
       const countPred1 = data.filter(item => item.prediccion === 1).length;
       const countPred0 = data.filter(item => item.prediccion === 0).length;
