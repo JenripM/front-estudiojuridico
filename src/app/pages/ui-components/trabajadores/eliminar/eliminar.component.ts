@@ -47,7 +47,7 @@ export class EliminarComponent implements OnInit {
   }
 
   confirmarEliminacion() {
-    this.http.delete<any>(`http://localhost:8080/api/v1/trabajador/delete/${this.trabajadorId}`)
+    this.http.delete<any>(`https://back-estudiojuridico.onrender.com/api/v1/trabajador/delete/${this.trabajadorId}`)
       .subscribe(
         response => {
           console.log('Trabajador eliminado exitosamente:', response);

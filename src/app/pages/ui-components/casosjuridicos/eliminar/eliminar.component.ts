@@ -34,7 +34,7 @@ export class CasosEliminarComponent implements OnInit {
   }
 
   obtenerCaso(id: string) {
-    this.http.get<any>(`http://localhost:8080/api/v1/caso/${id}`)
+    this.http.get<any>(`https://back-estudiojuridico.onrender.com/api/v1/caso/${id}`)
       .subscribe(
         caso => {
           this.caso = caso;
@@ -48,7 +48,7 @@ export class CasosEliminarComponent implements OnInit {
 
 
   confirmarEliminacion() {
-    this.http.delete<any>(`http://localhost:8080/api/v1/caso/delete/${this.casoId}`)
+    this.http.delete<any>(`https://back-estudiojuridico.onrender.com/api/v1/caso/delete/${this.casoId}`)
       .subscribe(
         response => {
           console.log('Caso eliminado exitosamente:', response);

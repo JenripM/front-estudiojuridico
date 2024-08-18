@@ -112,7 +112,7 @@ export class CasosRegistrarComponent implements OnInit {
   // }
 
   obtenerClientes() {
-    this.http.get<any[]>('http://localhost:8080/api/v1/cliente/all')
+    this.http.get<any[]>('https://back-estudiojuridico.onrender.com/api/v1/cliente/all')
       .subscribe(
         clientes => {
           this.clientes = clientes;
@@ -141,7 +141,7 @@ export class CasosRegistrarComponent implements OnInit {
       console.log('Caso registrado exitosamente:', casoData.tipo,casoData.estado,
         casoData.fecha_inicio,casoData.fecha_cierre,casoData.fecha_cierre,casoData.fecha_cierre);
 
-      this.http.post<any>('http://localhost:8080/api/v1/caso/save', casoData)
+      this.http.post<any>('https://back-estudiojuridico.onrender.com/api/v1/caso/save', casoData)
         .subscribe(response => {
           console.log('Caso registrado exitosamente:', response);
           alert('Caso registrado exitosamente');

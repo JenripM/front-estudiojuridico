@@ -88,7 +88,7 @@ export class UsuarioEditarComponent implements OnInit {
         ]
       };
 
-      this.http.put<any>(`http://localhost:8080/api/v1/auth/usuario/crud/update/${this.usuarioId}`, usuarioData)
+      this.http.put<any>(`https://back-estudiojuridico.onrender.com/api/v1/auth/usuario/crud/update/${this.usuarioId}`, usuarioData)
         .subscribe(response => {
           console.log('usuario actualizado exitosamente:', response);
           alert('usuario actualizado exitosamente');

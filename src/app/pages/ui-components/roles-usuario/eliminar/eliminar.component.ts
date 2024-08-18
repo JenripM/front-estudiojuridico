@@ -48,7 +48,7 @@ export class UsuarioEliminarComponent implements OnInit {
   }
 
   confirmarEliminacion() {
-    this.http.delete<any>(`http://localhost:8080/api/v1/auth/usuario/crud/delete/${this.usuarioId}`)
+    this.http.delete<any>(`https://back-estudiojuridico.onrender.com/api/v1/auth/usuario/crud/delete/${this.usuarioId}`)
       .subscribe(
         response => {
           console.log('usuario eliminado exitosamente:', response);
