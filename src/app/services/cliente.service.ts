@@ -6,7 +6,7 @@ import { Cliente } from '../models/cliente';
   providedIn: 'root'
 })
 export class ClienteService {
-  private apiUrl = 'http://localhost:8080/api/v1/cliente';
+  private apiUrl = 'https://back-estudiojuridico.onrender.com/api/v1/cliente';
 
   constructor(private http: HttpClient) { }
 
