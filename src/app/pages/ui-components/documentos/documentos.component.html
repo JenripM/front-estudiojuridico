@@ -37,10 +37,10 @@
               <th mat-header-cell *matHeaderCellDef> Acciones  </th>
               <td mat-cell *matCellDef="let documento">
                 <button mat-button (click)="redirectToDocument(documento.nombreArchivo, documento.tipo)">Ver archivo</button>
-                <a mat-flat-button class="blue" [href]="'http://localhost:4200/ui-components/documentos/editar/' + documento.idDocumento">
+                <a mat-flat-button class="blue" [href]="'https://front-estudiojuridico.vercel.app/ui-components/documentos/editar/' + documento.idDocumento">
                   <img src="../../../../assets/images/svgs/edit_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="">
                 </a><br><br>
-                <a mat-flat-button class="red" [href]="'http://localhost:4200/ui-components/documentos/eliminar/' + documento.idDocumento">
+                <a mat-flat-button class="red" [href]="'https://front-estudiojuridico.vercel.app/ui-components/documentos/eliminar/' + documento.idDocumento">
                   <img src="../../../../assets/images/svgs/delete_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="">
                 </a>
               </td>
