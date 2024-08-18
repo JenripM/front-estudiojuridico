@@ -68,13 +68,13 @@ export class AppDocumentosComponent implements OnInit {
     console.log('Tipo de archivo:', tipo);
 
     if (tipo === 'PDF') {
-        url = `http://localhost:4200/assets/documentos/${nombreArchivo}`;
+        url = `https://front-estudiojuridico.vercel.app/assets/documentos/${nombreArchivo}`;
     } else if (tipo === 'DOC' || tipo === 'XLS') {
         // Usa Google Docs Viewer para archivos docx y xls
-        url = `https://docs.google.com/gview?url=http://localhost:4200/assets/documentos/${nombreArchivo}&embedded=true`;
+        url = `https://docs.google.com/gview?url=https://front-estudiojuridico.vercel.app/assets/documentos/${nombreArchivo}&embedded=true`;
     } else if (tipo === 'jpg' || tipo === 'png') {
         // Para imágenes, solo muestra la URL directamente
-        url = `http://localhost:4200/assets/documentos/${nombreArchivo}`;
+        url = `https://front-estudiojuridico.vercel.app/assets/documentos/${nombreArchivo}`;
     } else {
         console.error('Tipo de archivo no soportado');
         return;

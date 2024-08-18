@@ -44,7 +44,7 @@ export class DocumentosEliminarComponent {
       );
   }
   confirmarEliminacion() {
-    this.http.delete<any>(`http://localhost:8080/api/v1/documento/delete/${this.idDocumento}`)
+    this.http.delete<any>(`https://back-estudiojuridico.onrender.com/api/v1/documento/delete/${this.idDocumento}`)
       .subscribe(
         response => {
           console.log('documento eliminado exitosamente:', response);

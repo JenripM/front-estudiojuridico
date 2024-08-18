@@ -87,7 +87,7 @@ export class RegistrarComponent implements OnInit {
         }
       };
 
-      this.http.post<any>('http://localhost:8080/api/v1/documento/save', documentoData)
+      this.http.post<any>('https://back-estudiojuridico.onrender.com/api/v1/documento/save', documentoData)
         .subscribe(response => {
           console.log('Documento registrado exitosamente:', response);
           alert('Documento registrado exitosamente');
