@@ -39,7 +39,7 @@ export class AppTrabajadoresComponent implements OnInit {
   }
 
   obtenerTrabajadores() {
-    this.http.get<Trabajador[]>('http://localhost:8080/api/v1/trabajador/all')
+    this.http.get<Trabajador[]>('https://back-estudiojuridico.onrender.com/api/v1/trabajador/all')
       .subscribe(trabajadores => {
         this.dataSource.data = trabajadores; // Asigna los datos obtenidos al arreglo de datos de MatTableDataSource
         this.dataSource.paginator = this.paginator;
