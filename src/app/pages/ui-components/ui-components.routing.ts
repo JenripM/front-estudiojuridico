@@ -26,7 +26,7 @@ import { AsignaciontareasComponent } from './asignaciontareas/asignaciontareas.c
 import { AppDocumentosComponent } from './documentos/documentos.component';
 import { CorrespondenciaComponent } from './correspondencia/correspondencia.component';
 import { CasosEliminarComponent } from './casosjuridicos/eliminar/eliminar.component';
-import { RegistrarComponent } from './documentos/registrar/registrar.component';
+import { DocumentoRegistrarComponent } from './documentos/registrar/registrar.component';
 import { DocumentosEditarComponent } from './documentos/editar/documentos-editar/documentos-editar.component';
 import { DocumentosEliminarComponent } from './documentos/eliminar/documentos-eliminar/documentos-eliminar.component';
 
@@ -100,7 +100,7 @@ export const UiComponentsRoutes: Routes = [
       },
       {
         path: 'documentos/registrar',
-        component: RegistrarComponent,
+        component: DocumentoRegistrarComponent,
       },
       {
         path: 'documentos/editar/:id',
