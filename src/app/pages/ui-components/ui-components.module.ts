@@ -37,7 +37,7 @@ import { UsuarioRegistrarComponent } from './roles-usuario/registrar/registrar.c
 import { UsuarioEliminarComponent } from './roles-usuario/eliminar/eliminar.component';
 import { UsuarioEditarComponent } from './roles-usuario/editar/editar.component';
 import { AppDocumentosComponent } from './documentos/documentos.component';
-import { RegistrarComponent } from './documentos/registrar/registrar.component';
+import { DocumentoRegistrarComponent } from './documentos/registrar/registrar.component';
 
 @NgModule({
   imports: [
@@ -59,6 +59,7 @@ import { RegistrarComponent } from './documentos/registrar/registrar.component';
     ActividadesRegistrarComponent,
     ActividadesEliminarComponent,
     ActividadesEditarComponent,
+    DocumentoRegistrarComponent,
     CargoComponent,
     EditarComponent,
     EliminarComponent,

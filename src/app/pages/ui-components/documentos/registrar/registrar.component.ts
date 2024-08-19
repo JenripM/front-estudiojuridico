@@ -28,7 +28,7 @@ import { MatCardModule } from '@angular/material/card';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RegistrarComponent implements OnInit {
+export class DocumentoRegistrarComponent implements OnInit {
   formularioDocumento: FormGroup;
   casos: any[] = [];
   nombreArchivo: string = '';
